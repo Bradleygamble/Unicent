@@ -3,7 +3,7 @@
 class Session
 {
 
-	private __construct() 
+	private function __construct() 
 	{
 		session_start();
 	}
@@ -26,7 +26,7 @@ class Session
 		return $_SESSION[$session_key];
 	}
 
-	public function unset($session_key)
+	public function remove($session_key)
 	{
 		//		Unset the session
 		unset($_SESSION[$session_key]);

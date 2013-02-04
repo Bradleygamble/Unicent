@@ -11,11 +11,19 @@ class Database
 	private static $qry_delete;
 	private static $qry_limit;
 	private static $qry_update;
+	private static $qry_order_by;
 
-	private __construct() { }
+	private static $_instance = null;
+
+	public function __construct() 
+	{ 
+
+	}
 
 	public static function get($table = "")
 	{
+		self::$_instance = new self;
+
 		//		We need to clear out any strings as the user is selecting a new table
 		self::$qry_query = "";
 		self::$qry_where = "";
@@ -29,13 +37,15 @@ class Database
 			Error::display(DATABASE_GET_ERROR_MSG);
 		}
 
-		return self::$qry_table;
+		return self::$_instance;
 	}
 
 	//		---------------------------------------------------------------
 
 	public static function select($data = "*")
 	{	
+		self::$_instance = new self;
+
 		//		Check to see if the data we recieve is an array
 		if(is_array($data))
 		{
@@ -67,13 +77,15 @@ class Database
 			Error::display(DATABASE_SELECT_ERROR_MSG);
 		}
 
-		return self::$qry_select;
+		return self::$_instance;
 	}
 
 	//		---------------------------------------------------------------
 
-	public static function where($data = NULL)
+	public function where($data = NULL)
 	{
+		self::$_instance = new self;
+
 		//		Check to see if the data we were given is an array
 		if(is_array($data))
 		{
@@ -109,12 +121,12 @@ class Database
 			Error::display(DATABASE_WHERE_ERROR_MSG);
 		}
 
-		return self::$qry_where;
+		return self::$_instance;
 	}
 
 	//		---------------------------------------------------------------
 
-	public static function or_where()
+	public function or_where()
 	{
 
 	}
@@ -135,32 +147,32 @@ class Database
 
 	//		---------------------------------------------------------------
 
-	public static function limit()
+	public function limit()
 	{
 
 	}
 
 	//		---------------------------------------------------------------
 
-	public static function order_by()
+	public function order_by()
 	{
 
 	}
 
 	//		---------------------------------------------------------------
 
-	public static function result_row()
+	public function result_row()
 	{
-		self::$qry_query = _build_query();
-		return self::$qry_results = _run_query_row();
+		self::$qry_query = $this->_build_query();
+		return self::$qry_results = $this->_run_query_row();
 	}
 
 	//		---------------------------------------------------------------
 
-	public static function result_array()
+	public function result_array()
 	{
-		self::$qry_query = _build_query();
-		return self::$qry_results = _run_query_array();
+		self::$qry_query = $this->_build_query();
+		return self::$qry_results = $this->_run_query_array();
 	}
 
 	//		---------------------------------------------------------------

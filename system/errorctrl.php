@@ -3,7 +3,7 @@
 class Error
 {
 
-	private __construct() { }
+	private function __construct() { }
 
 	public static function display($error_string)
 	{

@@ -3,6 +3,8 @@
 //		Set up your environment ('development', 'staging', 'production')
 define('ENVIRONMENT', 'development');
 
+define('ROOT_FOLDER', 'Unicent');
+
 //		Error logging ('on', 'off')
 define('ERROR_LOGGING', 'on');
 //		Error log DIR, (NO TRAILING /)
