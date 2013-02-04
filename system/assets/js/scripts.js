@@ -1,6 +1,8 @@
 
 $(function() {
 
+	setTimeout('removeAlerts()', 5000);
+
 	$('.thrown-error').on('click', function() {
 		$(this).fadeOut();
 		return false;
@@ -17,3 +19,10 @@ $(function() {
 	});
 
 });
+
+function removeAlerts()
+{
+	$('.thrown-error').fadeOut();
+	$('.thrown-warning').fadeOut();
+	$('.thrown-success').fadeOut();
+}
