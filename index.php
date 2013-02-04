@@ -22,3 +22,5 @@
 	include 'system/system_builder.php';
 	
 	Database::get('hi')->where(array('sadfas' => 'asadf'))->result_array();
+
+	Alert::_throw('Hey, you did it!', 'success');
