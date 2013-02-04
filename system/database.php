@@ -50,7 +50,7 @@ class Database
 
 		if(self::$qry_table == "")
 		{
-			Error::throw(DATABASE_GET_ERROR_MSG);
+			Error::_throw(DATABASE_GET_ERROR_MSG);
 		}
 
 		return self::$_instance;
@@ -87,7 +87,7 @@ class Database
 		}
 		else
 		{
-			Error::throw(DATABASE_SELECT_ERROR_MSG);
+			Error::_throw(DATABASE_SELECT_ERROR_MSG);
 		}
 
 		return self::$_instance;
@@ -131,7 +131,7 @@ class Database
 		else
 		{
 			//		The user has not supplied an array, so we display an error
-			Error::throw(DATABASE_WHERE_ERROR_MSG);
+			Error::_throw(DATABASE_WHERE_ERROR_MSG);
 		}
 
 		return self::$_instance;
@@ -209,8 +209,8 @@ class Database
 		//		Check to see if we actually have any results
 		if(empty(self::$qry_results))
 		{
-			//		If we don't have any results, we'll throw an error
-			Error::throw(MYSQL_FETCH_ROW_ERROR);
+			//		If we don't have any results, we'll _throw an error
+			Error::_throw(MYSQL_FETCH_ROW_ERROR);
 		}
 
 		//		Return the results
@@ -227,8 +227,8 @@ class Database
 		//		Check to see if we actually have any results
 		if(empty(self::$qry_results))
 		{
-			//		If we don't have any results, we'll throw an error
-			Error::throw(MYSQL_FETCH_ASSOC_ERROR);
+			//		If we don't have any results, we'll _throw an error
+			Error::_throw(MYSQL_FETCH_ASSOC_ERROR);
 		}
 
 		//		Return the results
