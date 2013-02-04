@@ -3,12 +3,12 @@
 	//		Array of files that we want to load on startup
 	$load_files = array(
 			'config' . DS . 'languages' . DS . 'errors' . DS . LANGUAGE_SELECTED => 'php',
-			'system' . DS . 'errorctrl' => 'php',
-			'system' . DS . 'database' => 'php',
-			'system' . DS . 'sessions' => 'php',
-			'system' . DS . 'loader' => 'php',
-			'system' . DS . 'cookies' => 'php',
-			'system' . DS . 'template' => 'php'
+			'system' . DS . 'core' . DS . 'errorctrl' => 'php',
+			'system' . DS . 'core' . DS . 'database' => 'php',
+			'system' . DS . 'core' . DS . 'sessions' => 'php',
+			'system' . DS . 'core' . DS . 'loader' => 'php',
+			'system' . DS . 'core' . DS . 'cookies' => 'php',
+			'system' . DS . 'core' . DS . 'template' => 'php'
 			);
 
 	//		Loop through all of the files to load them
