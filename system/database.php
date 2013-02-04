@@ -45,14 +45,19 @@ class Database
 		self::$qry_where = "";
 		self::$qry_results = "";
 
-		//		Set our table to the user defined table
-		self::$qry_table = $table;
-
+		//		Check to see if a table was actually supplied
 		if(self::$qry_table == "")
 		{
+			//		If a table was not supplied, we'll throw an error
 			Error::_throw(DATABASE_GET_ERROR_MSG);
 		}
+		else
+		{
+			//		Set our table to the user defined table
+			self::$qry_table = $table;
+		}
 
+		//		Return an instance of this
 		return self::$_instance;
 	}
 
@@ -87,9 +92,11 @@ class Database
 		}
 		else
 		{
+			//		If a database was not supplied, we'll throw an error
 			Error::_throw(DATABASE_SELECT_ERROR_MSG);
 		}
 
+		//		Return an instance of this
 		return self::$_instance;
 	}
 
