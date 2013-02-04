@@ -34,11 +34,11 @@ class Database
 			}
 			else if(!$database_connect)
 			{
-				Error::_throw(DATABASE_CONNECTION_ERROR, 'error');
+				Alert::_throw(DATABASE_CONNECTION_ERROR, 'error');
 			}
 			else if(!$mysql_connect)
 			{
-				Error::_throw(MYSQL_CONNECTION_ERROR, 'error');
+				Alert::_throw(MYSQL_CONNECTION_ERROR, 'error');
 			}
 		}
 
@@ -57,7 +57,7 @@ class Database
 		if($table == "")
 		{
 			//		If a table was not supplied, we'll throw an error
-			Error::_throw(DATABASE_GET_ERROR_MSG, 'error');
+			Alert::_throw(DATABASE_GET_ERROR_MSG, 'error');
 		}
 		else
 		{
@@ -101,7 +101,7 @@ class Database
 		else
 		{
 			//		If a database was not supplied, we'll throw an error
-			Error::_throw(DATABASE_SELECT_ERROR_MSG, 'error');
+			Alert::_throw(DATABASE_SELECT_ERROR_MSG, 'error');
 		}
 
 		//		Return an instance of this
@@ -146,7 +146,7 @@ class Database
 		else
 		{
 			//		The user has not supplied an array, so we display an error
-			Error::_throw(DATABASE_WHERE_ERROR_MSG, 'error');
+			Alert::_throw(DATABASE_WHERE_ERROR_MSG, 'error');
 		}
 
 		//		Return an instance of itself
@@ -232,7 +232,7 @@ class Database
 		if(empty(self::$qry_results))
 		{
 			//		If we don't have any results, we'll _throw an error
-			Error::_throw(MYSQL_FETCH_ROW_ERROR, 'warning');
+			Alert::_throw(MYSQL_FETCH_ROW_ERROR, 'warning');
 		}
 
 		//		Return the results
@@ -250,7 +250,7 @@ class Database
 		if(empty(self::$qry_results))
 		{
 			//		If we don't have any results, we'll _throw an error
-			Error::_throw(MYSQL_FETCH_ASSOC_ERROR, 'warning');
+			Alert::_throw(MYSQL_FETCH_ASSOC_ERROR, 'warning');
 		}
 
 		//		Return the results
