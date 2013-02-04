@@ -50,7 +50,7 @@ class Database
 
 		if(self::$qry_table == "")
 		{
-			Error::display(DATABASE_GET_ERROR_MSG);
+			Error::throw(DATABASE_GET_ERROR_MSG);
 		}
 
 		return self::$_instance;
@@ -80,9 +80,6 @@ class Database
 					self::$qry_select .= ", `" . $data_val . "`";
 				}
 			}
-
-			return self::$qry_select;
-
 		}
 		else if($data != "" || $data == "*")
 		{
@@ -90,7 +87,7 @@ class Database
 		}
 		else
 		{
-			Error::display(DATABASE_SELECT_ERROR_MSG);
+			Error::throw(DATABASE_SELECT_ERROR_MSG);
 		}
 
 		return self::$_instance;
@@ -134,7 +131,7 @@ class Database
 		else
 		{
 			//		The user has not supplied an array, so we display an error
-			Error::display(DATABASE_WHERE_ERROR_MSG);
+			Error::throw(DATABASE_WHERE_ERROR_MSG);
 		}
 
 		return self::$_instance;
@@ -198,6 +195,7 @@ class Database
 		//		We ned to piece together the qrysy string
 		self::$qry_query = self::$qry_select . self::$qry_where . self::$qry_order_by . self::$qry_limit;
 
+		//		We want to return with the query
 		return self::$qry_query;
 	}
 
@@ -205,13 +203,17 @@ class Database
 
 	private function _run_query_row()
 	{
+		//		Get the actual results from the row
 		self::$qry_results = @mysql_fetch_row(self::$qry_query);
 
+		//		Check to see if we actually have any results
 		if(empty(self::$qry_results))
 		{
-			Error::display(MYSQL_FETCH_ROW_ERROR);
+			//		If we don't have any results, we'll throw an error
+			Error::throw(MYSQL_FETCH_ROW_ERROR);
 		}
 
+		//		Return the results
 		return self::$qry_results;
 	}
 
@@ -219,13 +221,17 @@ class Database
 
 	private function _run_query_array()
 	{
+		//		Get the actual results from the array
 		self::$qry_results = @mysql_fetch_assoc(self::$qry_query);
 
+		//		Check to see if we actually have any results
 		if(empty(self::$qry_results))
 		{
-			Error::display(MYSQL_FETCH_ASSOC_ERROR);
+			//		If we don't have any results, we'll throw an error
+			Error::throw(MYSQL_FETCH_ASSOC_ERROR);
 		}
 
+		//		Return the results
 		return self::$qry_results;
 	}
 

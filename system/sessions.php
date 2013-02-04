@@ -20,7 +20,7 @@ class Session
 		if(!isset($_SESSION[$session_key]))
 		{
 			//		Display an error as the session does not exist
-			Error::display(SESSION_NOT_SET);
+			Error::throw(SESSION_NOT_SET);
 		}
 		//		Return a set session
 		return $_SESSION[$session_key];
