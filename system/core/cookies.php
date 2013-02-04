@@ -29,10 +29,10 @@ class Cookie
 			if(!isset($data['time']))
 			{
 				//		No time has been defined, so we'll check the config for a default value
-				if(DEFAULT_COOKIE_TIME != "")
+				if(strlen(DEFAULT_COOKIE_TIME) > 0)
 				{
 					//		The config has a default set, so we'll use that
-					$data['time'] = DEFAULT_COOKIE_TIME;
+					$data['time'] = time()+DEFAULT_COOKIE_TIME;
 				}
 				else
 				{
@@ -74,7 +74,7 @@ class Cookie
 			}
 
 			//		All checks have been done. Data has been set. We'll now set the cookie.
-			setcookie($data['name'], $data['value'], $data['time'], $data['path'], $data['domain']);
+			$cookie = setcookie($data['name'], $data['value'], $data['time'], $data['path'], $data['domain']);
 		}
 
 	}
