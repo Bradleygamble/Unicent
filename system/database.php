@@ -141,6 +141,7 @@ class Database
 			Error::_throw(DATABASE_WHERE_ERROR_MSG);
 		}
 
+		//		Return an instance of itself
 		return self::$_instance;
 	}
 
@@ -183,7 +184,10 @@ class Database
 
 	public function result_row()
 	{
+		//		Set up our query after it has been built
 		self::$qry_query = $this->_build_query();
+
+		//		Return the results that are returned after running the query
 		return self::$qry_results = $this->_run_query_row();
 	}
 
@@ -191,7 +195,10 @@ class Database
 
 	public function result_array()
 	{
+		//		Set up our query after it has been built
 		self::$qry_query = $this->_build_query();
+
+		//		Return the results that are returned after running the query
 		return self::$qry_results = $this->_run_query_array();
 	}
 
