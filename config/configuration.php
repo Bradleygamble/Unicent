@@ -8,7 +8,7 @@ define('ROOT_FOLDER', 'Unicent');
 //		Error logging ('on', 'off')
 define('ERROR_LOGGING', 'on');
 //		Error log DIR, (NO TRAILING /)
-define('ERROR_LOG_DIRECTORY', '/system/logs');
+define('ERROR_LOG_DIRECTORY', 'system/logs');
 //		Unicent Errors ('on', 'off');
 define('UNICENT_DISPLAY_ERRORS', 'on');
 

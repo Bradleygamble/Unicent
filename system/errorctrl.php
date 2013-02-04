@@ -7,7 +7,7 @@ class Error
 
 	public static function display($error_string)
 	{
-		if(UNICENT_ERROR_LOGGING == "on")
+		if(UNICENT_DISPLAY_ERRORS == "on")
 		{
 			echo "ERROR: " . $error_string;
 		}

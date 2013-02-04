@@ -2,7 +2,7 @@
 	
 	//		Array of files that we want to load on startup
 	$load_files = array(
-			'config' . DS . 'languages' . DS . LANGUAGE_SELECTED => 'php',
+			'config' . DS . 'languages' . DS . 'errors' . DS . LANGUAGE_SELECTED => 'php',
 			'system' . DS . 'errorctrl' => 'php',
 			'system' . DS . 'database' => 'php',
 			'system' . DS . 'sessions' => 'php',
