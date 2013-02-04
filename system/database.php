@@ -13,10 +13,26 @@ class Database
 	private static $qry_update;
 	private static $qry_order_by;
 
+	private static $_connection = null;
 	private static $_instance = null;
 
 	public function __construct() 
 	{ 
+
+	}
+
+	public static function _set_connection($hostname, $username, $password, $database)
+	{
+		if(self::$_connection === null)
+		{
+			$mysql_connect = @mysql_connect($hostname, $username, $password);
+			$database_connect = @mysql_select_db($database);
+
+			if($mysql_connect && $database_connect)
+			{
+				self::$_connection == TRUE;
+			}
+		}
 
 	}
 
@@ -189,7 +205,7 @@ class Database
 
 	private function _run_query_row()
 	{
-		self::$qry_results = mysql_fetch_row(self::$qry_query);
+		self::$qry_results = @mysql_fetch_row(self::$qry_query);
 
 		return self::$qry_results;
 	}
@@ -198,7 +214,7 @@ class Database
 
 	private function _run_query_array()
 	{
-		self::$qry_results = mysql_fetch_assoc(self::$qry_query);
+		self::$qry_results = @mysql_fetch_assoc(self::$qry_query);
 
 		return self::$qry_results;
 	}

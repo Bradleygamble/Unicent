@@ -1,6 +1,7 @@
 <?php
 
 	include 'config/configuration.php';
+	include 'config/database.php';
 
 	if(ENVIRONMENT == "development")
 	{

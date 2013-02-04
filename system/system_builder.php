@@ -39,3 +39,6 @@
 	}
 
 	//		Now we need to define everything! 
+
+	//		Set up our database connection
+	Database::_set_connection($CONNECTION['hostname'], $CONNECTION['username'], $CONNECTION['password'], $CONNECTION['database']);
