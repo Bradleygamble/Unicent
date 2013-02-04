@@ -22,6 +22,29 @@ body
 	.thrown-error p
 	{
 		margin:0;
-		margin-left:50px;
+		margin-left:100px;
+		padding:0;
+	}
+
+.thrown-warning
+{
+	margin:5px;
+	padding:15px;
+	font-size:14px;
+	background: #EE9900;
+	color:#FFFFFF;
+	border:2px solid #AA7700;
+	border-radius: 10px;
+}
+
+	.thrown-warning strong
+	{
+		float:left;
+	}
+
+	.thrown-warning p
+	{
+		margin:0;
+		margin-left:100px;
 		padding:0;
 	}

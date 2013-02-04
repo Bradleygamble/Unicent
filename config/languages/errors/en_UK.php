@@ -14,6 +14,8 @@
 	$error['DATABASE_LIMIT_ERROR_MSG'] 			= "Database::select() - The values/fields you are trying to select are invalid";
 	$error['DATABASE_GET_WHERE_ERROR_MSG'] 		= "Database::select() - The values/fields you are trying to select are invalid";
 	$error['DATABASE_UPDATE_ERROR_MSG'] 		= "Database::select() - The values/fields you are trying to select are invalid";
+	$error['DATABASE_CONNECTION_ERROR']			= "A connection to the Database could not be established.";
+	$error['MYSQL_CONNECTION_ERROR']			= "A connection to the MySQL Server could not be established.";
 	$error['MYSQL_FETCH_ASSOC_ERROR']			= "'mysql_fetch_assoc()' returned with no results.";
 	$error['MYSQL_FETCH_ASSOC_ROW']				= "'mysql_fetch_row()' returned with no results.";
 
