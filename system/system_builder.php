@@ -39,7 +39,9 @@
 	}
 
 	//		Now we need to define everything! 
-	echo '<link href="system/assets/core.css" type="text/css" rel="stylesheet" />'; 
+	echo '<link href="system/assets/styles/core.css" type="text/css" rel="stylesheet" />'; 
+	echo '<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>';
+	echo '<script src="system/assets/js/scripts.js" type="text/javascript"></script>'; 
 
 	//		Set up our database connection
 	Database::_set_connection($CONNECTION['hostname'], $CONNECTION['username'], $CONNECTION['password'], $CONNECTION['database']);
