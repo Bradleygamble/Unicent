@@ -39,6 +39,7 @@
 	}
 
 	//		Now we need to define everything! 
+	echo '<link href="system/assets/core.css" type="text/css" rel="stylesheet" />'; 
 
 	//		Set up our database connection
 	Database::_set_connection($CONNECTION['hostname'], $CONNECTION['username'], $CONNECTION['password'], $CONNECTION['database']);

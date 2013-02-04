@@ -1,0 +1,27 @@
+body
+{
+	font-family: Arial;
+}
+
+.thrown-error
+{
+	margin:5px;
+	padding:15px;
+	font-size:14px;
+	background: #CC0000;
+	color:#FFFFFF;
+	border:2px solid #900;
+	border-radius: 10px;
+}
+
+	.thrown-error strong
+	{
+		float:left;
+	}
+
+	.thrown-error p
+	{
+		margin:0;
+		margin-left:50px;
+		padding:0;
+	}

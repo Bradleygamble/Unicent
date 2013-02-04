@@ -20,7 +20,5 @@
 	}
 
 	include 'system/system_builder.php';
-
-	echo "Hi'";
 	
 	Database::get('hi')->where(array('sadfas' => 'asadf'))->result_array();

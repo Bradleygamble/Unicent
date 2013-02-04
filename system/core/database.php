@@ -46,7 +46,7 @@ class Database
 		self::$qry_results = "";
 
 		//		Check to see if a table was actually supplied
-		if(self::$qry_table == "")
+		if($table == "")
 		{
 			//		If a table was not supplied, we'll throw an error
 			Error::_throw(DATABASE_GET_ERROR_MSG);
