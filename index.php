@@ -24,3 +24,6 @@
 	Database::get('hi')->where(array('sadfas' => 'asadf'))->result_array();
 
 	Alert::_throw('Hey, you did it!', 'success');
+
+	$cookie = array('name' => "MyCookie!", 'value' => "MyValue!");
+	Cookie::set($cookie);

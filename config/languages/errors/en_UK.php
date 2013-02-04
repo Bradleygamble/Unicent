@@ -22,6 +22,10 @@
 	//		Session error messages
 	$error['SESSION_NOT_SET']					= "Session::get() - This session is currently not set";
 
+	//		Cookie error messages
+	$error['COOKIE_DATA_ERROR']					= "Cookie::set() - Cookie data must be an array.";
+	$error['COOKIE_DATA_MISSING']				= "Cookie::set() - Cookie's must at least have a name and value.";
+
 	foreach($error as $error_key => $error_val)
 	{
 		define($error_key, $error_val);
