@@ -207,6 +207,11 @@ class Database
 	{
 		self::$qry_results = @mysql_fetch_row(self::$qry_query);
 
+		if(empty(self::$qry_results))
+		{
+			Error::display(MYSQL_FETCH_ROW_ERROR);
+		}
+
 		return self::$qry_results;
 	}
 
@@ -215,6 +220,11 @@ class Database
 	private function _run_query_array()
 	{
 		self::$qry_results = @mysql_fetch_assoc(self::$qry_query);
+
+		if(empty(self::$qry_results))
+		{
+			Error::display(MYSQL_FETCH_ASSOC_ERROR);
+		}
 
 		return self::$qry_results;
 	}
