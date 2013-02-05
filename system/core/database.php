@@ -62,7 +62,7 @@ class Database
 		else
 		{
 			//		Set our table to the user defined table
-			self::$qry_table = $table;
+			self::$qry_table = _secure($table);
 		}
 
 		//		Return an instance of this
@@ -85,12 +85,12 @@ class Database
 				if(self::$qry_select == "")
 				{	
 					//		Start a SELECT string
-					self::$qry_select = "SELECT `" . $data_val . "`";
+					self::$qry_select = "SELECT `" . _secure($data_val) . "`";
 				}
 				else
 				{
 					//		Append to the SELECT string that we already have
-					self::$qry_select .= ", `" . $data_val . "`";
+					self::$qry_select .= ", `" . _secure($data_val) . "`";
 				}
 			}
 		}
@@ -134,12 +134,12 @@ class Database
 				if(self::$qry_where == "")
 				{
 					//		We'll build the string from the beginning
-					self::$qry_where = "`" . $data_key . "`" . $command . "'" . $data_key . "'";
+					self::$qry_where = "`" . _secure($data_key) . "`" . _secure($command) . "'" . _secure($data_key) . "'";
 				}
 				else
 				{
 					//		The string isn't empty so we'll append to it
-					self::$qry_where .= "`" . $data_key . "`" . $command . "'" . $data_key . "'";
+					self::$qry_where .= "`" . _secure($data_key) . "`" . _secure($command) . "'" . _secure($data_key) . "'";
 				}
 			}
 		}
@@ -255,6 +255,13 @@ class Database
 
 		//		Return the results
 		return self::$qry_results;
+	}
+
+	private function _secure($string)
+	{
+		$string = mysql_real_escape_string(stripslashes($string));
+
+		return $string;
 	}
 
 }
