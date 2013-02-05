@@ -2,13 +2,13 @@
 	
 	//		Array of files that we want to load on startup
 	$load_files = array(
-			'config' . DS . 'languages' . DS . 'errors' . DS . LANGUAGE_SELECTED => 'php',
-			'system' . DS . 'core' . DS . 'errorctrl' => 'php',
-			'system' . DS . 'core' . DS . 'database' => 'php',
-			'system' . DS . 'core' . DS . 'sessions' => 'php',
-			'system' . DS . 'core' . DS . 'loader' => 'php',
-			'system' . DS . 'core' . DS . 'cookies' => 'php',
-			'system' . DS . 'core' . DS . 'template' => 'php'
+			ROOT . DS . 'config' . DS . 'languages' . DS . 'errors' . DS . LANGUAGE_SELECTED => 'php',
+			ROOT . DS . 'system' . DS . 'core' . DS . 'errorctrl' => 'php',
+			ROOT . DS . 'system' . DS . 'core' . DS . 'database' => 'php',
+			ROOT . DS . 'system' . DS . 'core' . DS . 'sessions' => 'php',
+			ROOT . DS . 'system' . DS . 'core' . DS . 'loader' => 'php',
+			ROOT . DS . 'system' . DS . 'core' . DS . 'cookies' => 'php',
+			ROOT . DS . 'system' . DS . 'core' . DS . 'template' => 'php'
 			);
 
 	//		Loop through all of the files to load them
@@ -24,7 +24,7 @@
 			if(!isset($log))
 			{
 				//		Prepare the log for us to write to
-				$log = fopen(ERROR_LOG_DIRECTORY . DS . "log" . date("Ymdhis") . ".txt", "x");
+				$log = fopen(ROOT . DS . ERROR_LOG_DIRECTORY . DS . "log" . date("Ymdhis") . ".txt", "x");
 			}
 
 			fwrite($log, "[" . date("d/m/Y H:i:s") . "] -- Failed to load SYSTEM FILE: '" . $key . "." . $value . "' \n");
@@ -39,9 +39,9 @@
 	}
 
 	//		Now we need to define everything! 
-	echo '<link href="system/assets/styles/core.css" type="text/css" rel="stylesheet" />'; 
+	echo '<link href="' . ROOT_FOLDER . '/assets/system/styles/core.css" type="text/css" rel="stylesheet" />'; 
 	echo '<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>';
-	echo '<script src="system/assets/js/scripts.js" type="text/javascript"></script>'; 
+	echo '<script src="' . ROOT_FOLDER . '/assets/system/js/scripts.js" type="text/javascript"></script>'; 
 
 	//		Set up our database connection
 	Database::_set_connection($CONNECTION['hostname'], $CONNECTION['username'], $CONNECTION['password'], $CONNECTION['database']);

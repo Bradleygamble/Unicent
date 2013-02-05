@@ -1,0 +1,6 @@
+[05/02/2013 19:31:33] -- Failed to load SYSTEM FILE: 'config/languages/errors/en_UK.php' 
+[05/02/2013 19:31:33] -- Failed to load SYSTEM FILE: 'system/core/errorctrl.php' 
+[05/02/2013 19:31:33] -- Failed to load SYSTEM FILE: 'system/core/sessions.php' 
+[05/02/2013 19:31:33] -- Failed to load SYSTEM FILE: 'system/core/loader.php' 
+[05/02/2013 19:31:33] -- Failed to load SYSTEM FILE: 'system/core/cookies.php' 
+[05/02/2013 19:31:33] -- Failed to load SYSTEM FILE: 'system/core/template.php' 
