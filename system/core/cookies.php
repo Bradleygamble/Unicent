@@ -79,13 +79,17 @@ class Cookie
 
 	}
 
+	//		Static function for getting the value of a cookie
 	public static function get($cookie_key)
 	{
+		//		Return the cookie value
 		return $_COOKIE[$cookie_key];
 	}
 
+	//		Static function for destroying a cookie
 	public static function destroy($cookie_key)
 	{
+		//		Destroy the cookie by setting it's time to 0
 		setcookie($cookie_key, '', 0);
 	}
 

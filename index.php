@@ -30,3 +30,7 @@
 	Cookie::set($cookie);
 
 	echo Cookie::get($cookie['name']);
+
+	Session::set('MySession', 'isCool');
+
+	echo Session::get('MySession');

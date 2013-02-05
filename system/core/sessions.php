@@ -2,19 +2,28 @@
 
 class Session
 {
+	private static $_session = NULL;
 
-	private function __construct() 
+	//		Construction function
+	public function __construct() 
 	{
-		session_start();
+		//		Start a session if the session hasn't already been started
+		if(self::$_session === NULL)
+		{
+			//		Set the session
+			self::$_session = session_start();
+		}
 	}
 
-	public function set($session_key, $session_val)
+	//		Static function for setting a session
+	public static function set($session_key, $session_val)
 	{
 		//		Set the session
 		$_SESSION[$session_key] = $session_val;
 	}
 
-	public function get($session_key)
+	//		Static function for getting the value of a session
+	public static function get($session_key)
 	{
 		//		Check to see if we actually have this session
 		if(!isset($_SESSION[$session_key]))
@@ -26,9 +35,10 @@ class Session
 		return $_SESSION[$session_key];
 	}
 
-	public function destroy($session_key)
+	//		Static function for destroying a session
+	public static function destroy($session_key)
 	{
-		//		Unset the session
+		//		Destroy the session
 		unset($_SESSION[$session_key]);
 	}
 
