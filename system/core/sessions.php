@@ -26,7 +26,7 @@ class Session
 		return $_SESSION[$session_key];
 	}
 
-	public function remove($session_key)
+	public function destroy($session_key)
 	{
 		//		Unset the session
 		unset($_SESSION[$session_key]);
