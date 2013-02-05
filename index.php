@@ -9,7 +9,6 @@
 		ini_set('display_errors', 1);
 	}
 
-	define("DS", "/");
 	if(ROOT_FOLDER == "")
 	{
 		define("ROOT", dirname(dirname(__FILE__)));
@@ -19,6 +18,8 @@
 		define("ROOT", dirname(__FILE__));
 	}
 
+	define("DS", "/");
+
 	include 'system/system_builder.php';
 	
 	Database::get('hi')->where(array('sadfas' => 'asadf'))->result_array();
@@ -27,3 +28,5 @@
 
 	$cookie = array('name' => "MyCookie!", 'value' => "MyValue!");
 	Cookie::set($cookie);
+
+	echo Cookie::get($cookie['name']);

@@ -79,4 +79,14 @@ class Cookie
 
 	}
 
+	public static function get($cookie_key)
+	{
+		return $_COOKIE[$cookie_key];
+	}
+
+	public static function destroy($cookie_key)
+	{
+		setcookie($cookie_key, '', 0);
+	}
+
 }
