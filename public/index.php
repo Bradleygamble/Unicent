@@ -18,13 +18,17 @@
 
 	$url = explode('/', $url);
 
-	$controller = strtolower($url[0]);
-	array_shift($url);
-	$function =	strtolower($url[0]);
-	array_shift($url);
+	if(isset($url[0]) && $url[0] != "")
+	{
+		$controller = strtolower($url[0]);
+		array_shift($url);
 
-	require_once(ROOT . DS . 'public' . DS . 'Controllers' . DS . $controller . '.php');
+		$function =	strtolower($url[0]);
+		array_shift($url);
 
-	$con = new $controller();
-	$function = call_user_func_array(array($con, $function), $url);
+		require_once(ROOT . DS . 'public' . DS . 'Controllers' . DS . $controller . '.php');
+
+		$con = new $controller();
+		$function = call_user_func_array(array($con, $function), $url);
+	}
 
